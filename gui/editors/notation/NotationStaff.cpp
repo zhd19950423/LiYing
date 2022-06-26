@@ -827,7 +827,7 @@ NotationStaff::renderSingleElement(ViewElementList::iterator &vli,
 
         static bool warned = false;
         if (!warned) {
-            QMessageBox::critical(nullptr, tr("Rosegarden"), tr( u.getMessage().c_str() ));
+            QMessageBox::critical(nullptr, tr("梨音教学工具"), tr( u.getMessage().c_str() ));
             warned = true;
         }
     }

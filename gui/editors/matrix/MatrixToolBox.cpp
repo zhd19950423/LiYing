@@ -79,7 +79,7 @@ MatrixToolBox::createTool(QString toolName)
         tool = new MatrixVelocity(m_widget);
     
     else {
-        QMessageBox::critical(nullptr, tr("Rosegarden"), QString("MatrixToolBox::createTool : unrecognised toolname %1 (%2)")
+        QMessageBox::critical(nullptr, tr("梨音教学工具"), QString("MatrixToolBox::createTool : unrecognised toolname %1 (%2)")
                            .arg(toolName).arg(toolNamelc));
         return nullptr;
     }

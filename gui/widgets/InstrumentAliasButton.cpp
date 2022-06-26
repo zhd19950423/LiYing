@@ -51,7 +51,7 @@ InstrumentAliasButton::slotPressed()
     bool ok = false;
 
     QString newAlias = InputDialog::getText(this,
-                                            tr("Rosegarden"),
+                                            tr("梨音教学工具"),
                                             tr("Enter instrument alias:"),
                                             LineEdit::Normal,
                                             strtoqstr(m_instrument->getAlias()),

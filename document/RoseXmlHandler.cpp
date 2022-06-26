@@ -455,7 +455,7 @@ RoseXmlHandler::startElement(const QString& namespaceURI,
 
                 StartupLogo::hideIfStillThere();
 
-                QMessageBox::information(nullptr, tr("Rosegarden"), tr("This file was written by Rosegarden %1, which is more recent than this version.\nThere may be some incompatibilities with the file format.").arg(version));
+                QMessageBox::information(nullptr, tr("梨音教学工具"), tr("This file was written by Rosegarden %1, which is more recent than this version.\nThere may be some incompatibilities with the file format.").arg(version));
 
             }
         }

@@ -521,12 +521,12 @@ void GeneralConfigurationPage::apply()
     // Restart Warnings
 
     if (mainTextureChanged) {
-        QMessageBox::information(this, tr("Rosegarden"),
+        QMessageBox::information(this, tr("梨音教学工具"),
                 tr("Changes to the textured background in the main window will not take effect until you restart Rosegarden."));
     }
 
     if (thornChanged) {
-        QMessageBox::information(this, tr("Rosegarden"),
+        QMessageBox::information(this, tr("梨音教学工具"),
                 tr("You must restart Rosegarden for the presentation change to take effect."));
     }
 }

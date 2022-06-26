@@ -290,7 +290,7 @@ void RosegardenMainViewWidget::slotEditSegment(Segment* segment)
                 Segment::SegmentType myType = (*i)->getType();
                 if (haveType) {
                     if (myType != type) {
-                         QMessageBox::warning(this, tr("Rosegarden"), tr("Selection must contain only audio or non-audio segments"));
+                         QMessageBox::warning(this, tr("梨音教学工具"), tr("Selection must contain only audio or non-audio segments"));
                         return ;
                     }
                 } else {
@@ -390,7 +390,7 @@ void RosegardenMainViewWidget::slotEditSegmentNotation(Segment* p)
     }
 
     if (segmentsToEdit.empty()) {
-         QMessageBox::warning(this, tr("Rosegarden"), tr("No non-audio segments selected"));
+         QMessageBox::warning(this, tr("梨音教学工具"), tr("No non-audio segments selected"));
         return ;
     }
 
@@ -695,7 +695,7 @@ void RosegardenMainViewWidget::slotEditSegmentMatrix(Segment* p)
     }
 */
     if (segmentsToEdit.empty()) {
-         QMessageBox::warning(this, tr("Rosegarden"), tr("No non-audio segments selected"));
+         QMessageBox::warning(this, tr("梨音教学工具"), tr("No non-audio segments selected"));
         return ;
     }
 
@@ -734,7 +734,7 @@ void RosegardenMainViewWidget::slotEditSegmentPercussionMatrix(Segment* p)
     }
 
     if (segmentsToEdit.empty()) {
-         QMessageBox::warning(this, tr("Rosegarden"), tr("No non-audio segments selected"));
+         QMessageBox::warning(this, tr("梨音教学工具"), tr("No non-audio segments selected"));
         return ;
     }
 
@@ -861,7 +861,7 @@ void RosegardenMainViewWidget::slotEditSegmentEventList(Segment *p)
     }
 
     if (segmentsToEdit.empty()) {
-         QMessageBox::warning(this, tr("Rosegarden"), tr("No non-audio segments selected"));
+         QMessageBox::warning(this, tr("梨音教学工具"), tr("No non-audio segments selected"));
         return ;
     }
 
@@ -936,7 +936,7 @@ void RosegardenMainViewWidget::slotEditSegmentAudio(Segment *segment)
 
         RG_WARNING << "slotEditSegmentAudio() - external editor \"" << application.data() << "\" not found";
 
-         QMessageBox::warning(this, tr("Rosegarden"), 
+         QMessageBox::warning(this, tr("梨音教学工具"),
                            tr("You've not yet defined an audio editor for Rosegarden to use.\nSee Edit -> Preferences -> Audio."));
 
         return ;
@@ -1599,10 +1599,10 @@ RosegardenMainViewWidget::slotDroppedNewAudio(QString audioDesc)
           AUDIO_OK)) {
 
 #ifdef HAVE_LIBJACK
-        QMessageBox::warning(this, tr("Rosegarden"), 
+        QMessageBox::warning(this, tr("梨音教学工具"),
             tr("Cannot add dropped file.  JACK audio server is not available."));
 #else
-        QMessageBox::warning(this, tr("Rosegarden"), 
+        QMessageBox::warning(this, tr("梨音教学工具"),
             tr("Cannot add dropped file.  This version of rosegarden was not built with audio support."));
 #endif
 
@@ -1632,7 +1632,7 @@ RosegardenMainViewWidget::slotDroppedNewAudio(QString audioDesc)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             RosegardenMainWindow::self());  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // Don't want to auto close since this is a multi-step
     // process.  Any of the steps may set progress to 100.  We
@@ -1663,11 +1663,11 @@ RosegardenMainViewWidget::slotDroppedNewAudio(QString audioDesc)
         audioFileId = aFM.importURL(qurl, sampleRate);
     } catch (const AudioFileManager::BadAudioPathException &e) {
         QString errorString = tr("Can't add dropped file. ") + strtoqstr(e.getMessage());
-        QMessageBox::warning(this, tr("Rosegarden"), errorString);
+        QMessageBox::warning(this, tr("梨音教学工具"), errorString);
         return ;
     } catch (const SoundFile::BadSoundFileException &e) {
         QString errorString = tr("Can't add dropped file. ") + strtoqstr(e.getMessage());
-        QMessageBox::warning(this, tr("Rosegarden"), errorString);
+        QMessageBox::warning(this, tr("梨音教学工具"), errorString);
         return;
     }
 
@@ -1676,7 +1676,7 @@ RosegardenMainViewWidget::slotDroppedNewAudio(QString audioDesc)
     } catch (const Exception &e) {
         QString message = strtoqstr(e.getMessage()) + "\n\n" +
                           tr("Try copying this file to a directory where you have write permission and re-add it");
-        QMessageBox::information(this, tr("Rosegarden"), message);
+        QMessageBox::information(this, tr("梨音教学工具"), message);
         return;
     }
 

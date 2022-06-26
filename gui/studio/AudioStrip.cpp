@@ -492,7 +492,7 @@ void AudioStrip::slotLabelClicked()
 
     QString newAlias = InputDialog::getText(
             this,  // parent
-            tr("Rosegarden"),  // title
+            tr("梨音教学工具"),  // title
             tr("Enter instrument alias:"),  // label
             LineEdit::Normal,  // mode (echo)
             m_label->text(),  // text

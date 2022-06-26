@@ -956,7 +956,7 @@ StaffHeader::slotShowInconsistencies()
     QTextEdit *warning = new QTextEdit(str);
     warning->setReadOnly(true);
     warning->setAttribute(Qt::WA_DeleteOnClose);
-    warning->setWindowTitle(tr("Rosegarden")); // (in case we ever go cross-platform)
+    warning->setWindowTitle(tr("梨音教学工具")); // (in case we ever go cross-platform)
     warning->setWindowFlags(Qt::Dialog); // Get a popup in middle of screen
     warning->setMinimumWidth(500);
     warning->show();

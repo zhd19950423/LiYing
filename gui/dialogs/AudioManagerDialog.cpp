@@ -539,7 +539,7 @@ AudioManagerDialog::slotExportAudio()
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("LY_MusicTool"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // We will close anyway when this object goes out of scope.
     progressDialog.setAutoClose(false);
@@ -661,7 +661,7 @@ AudioManagerDialog::slotRemove()
                            .arg(audioFile->getFilename());
 
         // Ask the question
-        int reply = QMessageBox::warning(this, tr("Rosegarden"), question, QMessageBox::Yes | QMessageBox::Cancel , QMessageBox::Cancel);
+        int reply = QMessageBox::warning(this, tr("梨音教学工具"), question, QMessageBox::Yes | QMessageBox::Cancel , QMessageBox::Cancel);
         
         if (reply != QMessageBox::Yes)
             return ;
@@ -853,7 +853,7 @@ AudioManagerDialog::slotRemoveAll()
     QString question =
         tr("This will unload all audio files and remove their associated segments.\nThis action cannot be undone, and associations with these files will be lost.\nFiles will not be removed from your disk.\nAre you sure?");
 
-    int reply = QMessageBox::warning(this, tr("Rosegarden"), question, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
+    int reply = QMessageBox::warning(this, tr("梨音教学工具"), question, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
 
     if (reply != QMessageBox::Yes)
         return ;
@@ -890,7 +890,7 @@ AudioManagerDialog::slotRemoveAllUnused()
     QString question =
         tr("This will unload all audio files that are not associated with any segments in this composition.\nThis action cannot be undone, and associations with these files will be lost.\nFiles will not be removed from your disk.\nAre you sure?");
 
-    int reply = QMessageBox::warning(this, tr("Rosegarden"), question,QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
+    int reply = QMessageBox::warning(this, tr("梨音教学工具"), question,QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
 
     if (reply != QMessageBox::Yes)
         return ;
@@ -965,7 +965,7 @@ AudioManagerDialog::slotDeleteUnused()
             QString question =
                 tr("<qt>About to delete %n audio file(s) permanently from the hard disk.<br>This action cannot be undone, and there will be no way to recover the files.<br>Are you sure?</qt>", "", names.size());
 
-            int reply = QMessageBox::warning(this, tr("Rosegarden"), question, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
+            int reply = QMessageBox::warning(this, tr("梨音教学工具"), question, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel);
 
             if (reply != QMessageBox::Yes) {
                 delete dialog;
@@ -976,7 +976,7 @@ AudioManagerDialog::slotDeleteUnused()
                 RG_DEBUG << i << ": " << names[i];
                 QFile file(names[i]);
                 if (!file.remove()) {
-                    QMessageBox::critical(this, tr("Rosegarden"), tr("File %1 could not be deleted.").arg(names[i]));
+                    QMessageBox::critical(this, tr("梨音教学工具"), tr("File %1 could not be deleted.").arg(names[i]));
                 } else {
                     if (nameMap.find(names[i]) != nameMap.end()) {
                         m_doc->getAudioFileManager().removeFile(nameMap[names[i]]);
@@ -1201,7 +1201,7 @@ AudioManagerDialog::addFile(const QUrl& kurl)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // Don't want to auto close since this is a multi-step
     // process.  Any of the steps may set progress to 100.  We
@@ -1222,11 +1222,11 @@ AudioManagerDialog::addFile(const QUrl& kurl)
         id = aFM.importURL(kurl, m_sampleRate);
     } catch (const AudioFileManager::BadAudioPathException &e) {
         QString errorString = tr("Failed to add audio file. ") + strtoqstr(e.getMessage());
-        QMessageBox::warning(this, tr("Rosegarden"), errorString);
+        QMessageBox::warning(this, tr("梨音教学工具"), errorString);
         return false;
     } catch (const SoundFile::BadSoundFileException &e) {
         QString errorString = tr("Failed to add audio file. ") + strtoqstr(e.getMessage());
-        QMessageBox::warning(this, tr("Rosegarden"), errorString);
+        QMessageBox::warning(this, tr("梨音教学工具"), errorString);
         return false;
     }
 
@@ -1235,7 +1235,7 @@ AudioManagerDialog::addFile(const QUrl& kurl)
     } catch (const Exception &e) {
         QString message = strtoqstr(e.getMessage()) + "\n\n" +
                           tr("Try copying this file to a directory where you have write permission and re-add it");
-        QMessageBox::information(this, tr("Rosegarden"), message);
+        QMessageBox::information(this, tr("梨音教学工具"), message);
     }
 
     slotPopulateFileList();

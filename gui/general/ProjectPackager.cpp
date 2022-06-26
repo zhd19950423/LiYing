@@ -709,7 +709,7 @@ RG_DEBUG << "cp " << oldName << " " << newName;
     }
 
     QMessageBox::StandardButton reply = QMessageBox::information(this,
-            tr("Rosegarden"),
+            tr("梨音教学工具"),
             tr("<qt><p>Rosegarden can add any number of extra files you may desire to a project package.  For example, you may wish to include an explanatory text file, a soundfont, a bank definition for ZynAddSubFX, or perhaps some cover art.</p><p>Would you like to include any additional files?</p></qt>"),
             QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
@@ -739,7 +739,7 @@ RG_DEBUG << "cp " << oldName << " " << newName;
         // require doing something more complicated than using QMessageBox
         // static convenience functions, and it's probably just not worth it
         reply =  QMessageBox::information(this,
-                tr("Rosegarden"),
+                tr("梨音教学工具"),
                 tr("<qt><p>Would you like to include any additional files?</p></qt>"),
                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
     }
@@ -985,7 +985,7 @@ RG_DEBUG << "Discovered true filename: " << m_trueFilename;
     QFileInfo fi(completeTrueFilename);
     if (fi.exists()) {
         QMessageBox::StandardButton reply =  QMessageBox::warning(this,
-                tr("Rosegarden"),
+                tr("梨音教学工具"),
                 tr("<qt><p>It appears that you have already unpacked this project package.</p><p>Would you like to load %1 now?</p></qt>").arg(completeTrueFilename),
                 QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Cancel);
 

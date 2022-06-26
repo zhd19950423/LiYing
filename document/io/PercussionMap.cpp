@@ -65,7 +65,7 @@ PercussionMap::loadPercussionMap(const QString &filename)
     QFile mapFile(filename);
     bool ok = mapFile.open(QIODevice::ReadOnly);
 //     if (!ok)
-//         QMessageBox::critical(0, tr("Rosegarden"), tr("couldn't open file '%1'").arg(handler.errorString()));
+//         QMessageBox::critical(0, tr("梨音教学工具"), tr("couldn't open file '%1'").arg(handler.errorString()));
 
     QXmlInputSource source(&mapFile);
     QXmlSimpleReader reader;
@@ -75,7 +75,7 @@ PercussionMap::loadPercussionMap(const QString &filename)
     ok = reader.parse(source);
 
 //     if (!ok)
-//         QMessageBox::critical(0, tr("Rosegarden"), tr("couldn't parse chord dictionary : %1").arg(handler.errorString()));
+//         QMessageBox::critical(0, tr("梨音教学工具"), tr("couldn't parse chord dictionary : %1").arg(handler.errorString()));
     return ok;
 }
 

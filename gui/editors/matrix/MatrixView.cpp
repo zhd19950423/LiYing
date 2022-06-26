@@ -1582,7 +1582,7 @@ MatrixView::slotHelpAbout()
 void
 MatrixView::slotHelpAboutQt()
 {
-    QMessageBox::aboutQt(this, tr("Rosegarden"));
+    QMessageBox::aboutQt(this, tr("梨音教学工具"));
 }
 
 void
@@ -1831,7 +1831,7 @@ MatrixView::slotInsertNoteFromAction()
 
     } catch (...) {
 
-        QMessageBox::warning(this, tr("Rosegarden"), tr("Unknown note insert action %1").arg(name));
+        QMessageBox::warning(this, tr("梨音教学工具"), tr("Unknown note insert action %1").arg(name));
         return ;
     }
 

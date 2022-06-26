@@ -243,7 +243,7 @@ AudioConfigurationPage::apply()
     if (extpath != "") {
         QFileInfo info(extpath);
         if (!info.exists() || !info.isExecutable()) {
-            QMessageBox::critical(nullptr, tr("Rosegarden"), tr("External audio editor \"%1\" not found or not executable").arg(extpath));
+            QMessageBox::critical(nullptr, tr("梨音教学工具"), tr("External audio editor \"%1\" not found or not executable").arg(extpath));
             settings.setValue("externalaudioeditor", "");
         } else {
             settings.setValue("externalaudioeditor", externalAudioEditor);

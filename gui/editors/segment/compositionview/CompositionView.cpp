@@ -287,7 +287,7 @@ void CompositionView::setTool(const QString &toolName)
     m_currentTool = m_toolBox->getTool(toolName);
 
     if (!m_currentTool) {
-        QMessageBox::critical(nullptr, tr("Rosegarden"), QString("CompositionView::setTool() : unknown tool name %1").arg(toolName));
+        QMessageBox::critical(nullptr, tr("梨音教学工具"), QString("CompositionView::setTool() : unknown tool name %1").arg(toolName));
         return;
     }
 

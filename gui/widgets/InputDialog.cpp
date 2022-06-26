@@ -35,7 +35,7 @@ InputDialog::InputDialog(const QString &title, const QString &label,
     : QDialog(parent, f)
 {
     // set the window title
-    setWindowTitle(tr("Rosegarden"));
+    setWindowTitle(tr("梨音教学工具"));
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
 
     QLabel *t = new QLabel(QString("<qt><h3>%1</h3></qt>").arg(title));

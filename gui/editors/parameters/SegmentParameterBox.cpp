@@ -1001,7 +1001,7 @@ SegmentParameterBox::slotChangeLinkTranspose()
     }
     
     if (foundTransposedLinks) {
-        QMessageBox::critical(this, tr("Rosegarden"), 
+        QMessageBox::critical(this, tr("梨音教学工具"),
                 tr("Existing transpositions on selected linked segments must be removed\nbefore new transposition can be applied."),
                 QMessageBox::Ok);
         return;
@@ -1047,7 +1047,7 @@ SegmentParameterBox::slotResetLinkTranspose()
     if (linkedSegs.empty())
         return;
 
-    int reset = QMessageBox::question(this, tr("Rosegarden"), 
+    int reset = QMessageBox::question(this, tr("梨音教学工具"),
                    tr("Remove transposition on selected linked segments?"));
 
     if (reset == QMessageBox::No)

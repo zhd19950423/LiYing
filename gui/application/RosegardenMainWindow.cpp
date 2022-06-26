@@ -1010,7 +1010,7 @@ RosegardenMainWindow::initView()
             leaveActionState("have_range"); //@@@ JAS orig. KXMLGUIClient::StateReverse
         } catch (const QString &s) {
             StartupLogo::hideIfStillThere();
-            QMessageBox::critical(dynamic_cast<QWidget*>(this), tr("Rosegarden"), s, QMessageBox::Ok, QMessageBox::Ok);
+            QMessageBox::critical(dynamic_cast<QWidget*>(this), tr("梨音教学工具"), s, QMessageBox::Ok, QMessageBox::Ok);
         }
 
         connect(m_seqManager, SIGNAL(controllerDeviceEventReceived(MappedEvent *)),
@@ -1342,7 +1342,7 @@ RosegardenMainWindow::createDocument(
     if (!fileInfo.exists()) {
         // can happen with command-line arg, so...
         StartupLogo::hideIfStillThere();
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("File \"%1\" does not exist").arg(filePath),
                 QMessageBox::Ok, QMessageBox::Ok);
         return nullptr;
@@ -1350,7 +1350,7 @@ RosegardenMainWindow::createDocument(
     
     if (fileInfo.isDir()) {
         StartupLogo::hideIfStillThere();
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("File \"%1\" is actually a directory").arg(filePath),
                 QMessageBox::Ok, QMessageBox::Ok);
         return nullptr;
@@ -1360,7 +1360,7 @@ RosegardenMainWindow::createDocument(
 
     if (!file.open(QIODevice::ReadOnly)) {
         StartupLogo::hideIfStillThere();
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("You do not have read permission for \"%1\"").arg(filePath),
                 QMessageBox::Ok, QMessageBox::Ok);
         return nullptr;
@@ -1386,7 +1386,7 @@ RosegardenMainWindow::createDocument(
 
     if (importType == ImportRGD) {
         StartupLogo::hideIfStillThere();
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("File \"%1\" is a Rosegarden Device, and must be imported using the MIDI device manager.").arg(filePath),
                 QMessageBox::Ok, QMessageBox::Ok);
         return nullptr;
@@ -1466,7 +1466,7 @@ RosegardenMainWindow::createDocumentFromRGFile(
 
             // Ask the user if they want to use the auto-save file
             QMessageBox::StandardButton reply = QMessageBox::question(
-                    this, tr("Rosegarden"),
+                    this, tr("梨音教学工具"),
                     tr("An auto-save file for this document has been found\nDo you want to open it instead ?"),
                     QMessageBox::Yes | QMessageBox::No);
 
@@ -1625,9 +1625,9 @@ RosegardenMainWindow::saveGlobalProperties()
             bool res = m_doc->saveDocument(tempname, errMsg);
             if (!res) {
                 if (!errMsg.isEmpty()) {
-                    QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1\nError was : %2").arg(tempname).arg(errMsg));
+                    QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1\nError was : %2").arg(tempname).arg(errMsg));
                 } else {
-                    QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1").arg(tempname));
+                    QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1").arg(tempname));
                 }
             }
         }
@@ -1782,7 +1782,7 @@ RosegardenMainWindow::openURL(const QUrl& url)
     //RG_DEBUG << "openURL(): url =" << url;
 
     if (!url.isValid()) {
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("Malformed URL\n%1").arg(url.toString()));
 
         return;
@@ -1791,7 +1791,7 @@ RosegardenMainWindow::openURL(const QUrl& url)
     FileSource source(url);
 
     if (!source.isAvailable()) {
-        QMessageBox::critical(this, tr("Rosegarden"),
+        QMessageBox::critical(this, tr("梨音教学工具"),
                 tr("Cannot open file %1").arg(url.toString()));
         return;
     }
@@ -1967,10 +1967,10 @@ RosegardenMainWindow::slotFileSave()
         bool res = m_doc->saveDocument(docFilePath, errMsg);
         if (!res) {
             if (! errMsg.isEmpty())
-                QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1\nError was : %2")
+                QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1\nError was : %2")
                                       .arg(docFilePath).arg(errMsg));
             else
-                QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1")
+                QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1")
                                       .arg(docFilePath));
         }
     }
@@ -2060,7 +2060,7 @@ RosegardenMainWindow::getValidWriteFileName(QString descriptiveExtension,
     QFileInfo info(name);
 
     if (info.isDir()) {
-        QMessageBox::warning(this, tr("Rosegarden"), 
+        QMessageBox::warning(this, tr("梨音教学工具"),
                              tr("You have specified a folder/directory."));
         return "";
     }
@@ -2068,7 +2068,7 @@ RosegardenMainWindow::getValidWriteFileName(QString descriptiveExtension,
     if (info.exists()) {
         int overwrite = QMessageBox::question(
                 this, 
-                tr("Rosegarden"), 
+                tr("梨音教学工具"),
                 tr("The specified file exists.  Overwrite?"), 
                 QMessageBox::Yes | QMessageBox::No,
                 QMessageBox::No);
@@ -2124,10 +2124,10 @@ RosegardenMainWindow::slotFileSaveAs(bool asTemplate)
 
     if (!res) {
         if (!errMsg.isEmpty())
-            QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1\nError was : %2")
+            QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1\nError was : %2")
                                   .arg(newName).arg(errMsg));
         else
-            QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1")
+            QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1")
                                   .arg(newName));
 
     } else {
@@ -2405,7 +2405,7 @@ RosegardenMainWindow::slotGrooveQuantize()
     SegmentSelection selection = m_view->getSelection();
 
     if (selection.size() != 1) {
-        QMessageBox::warning(this, tr("Rosegarden"), tr("This function needs no more than one segment to be selected."));
+        QMessageBox::warning(this, tr("梨音教学工具"), tr("This function needs no more than one segment to be selected."));
         return ;
     }
 
@@ -2422,7 +2422,7 @@ RosegardenMainWindow::slotFitToBeats()
     SegmentSelection selection = m_view->getSelection();
 
     if (selection.size() != 1) {
-        QMessageBox::warning(this, tr("Rosegarden"), tr("This function needs no more than one segment to be selected."));
+        QMessageBox::warning(this, tr("梨音教学工具"), tr("This function needs no more than one segment to be selected."));
         return ;
     }
 
@@ -2446,7 +2446,7 @@ RosegardenMainWindow::slotJoinSegments()
     for (SegmentSelection::iterator i = selection.begin();
             i != selection.end(); ++i) {
         if ((*i)->getType() != Segment::Internal) {
-            QMessageBox::warning(this, tr("Rosegarden"), tr("Can't join Audio segments"));
+            QMessageBox::warning(this, tr("梨音教学工具"), tr("Can't join Audio segments"));
             return ;
         }
     }
@@ -2471,7 +2471,7 @@ RosegardenMainWindow::slotExpandFiguration()
     for (SegmentSelection::iterator i = selection.begin();
             i != selection.end(); ++i) {
         if ((*i)->getType() != Segment::Internal) {
-            QMessageBox::warning(this, tr("Rosegarden"),
+            QMessageBox::warning(this, tr("梨音教学工具"),
                                  tr("Can't expand Audio segments with figuration"));
             return ;
         }
@@ -2576,7 +2576,7 @@ RosegardenMainWindow::slotRescaleSelection()
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // Don't want to auto close since this is a multi-step
     // process.  Any of the steps may set progress to 100.  We
@@ -2878,7 +2878,7 @@ RosegardenMainWindow::slotSplitSelectionAtTime()
 
             m_view->slotAddCommandToHistory(command);
         } else {
-            QMessageBox::information(this, tr("Rosegarden"), 
+            QMessageBox::information(this, tr("梨音教学工具"),
                 tr("Split time is not within a selected segment.\n"
                    "No segment will be split."));
         }
@@ -2954,7 +2954,7 @@ RosegardenMainWindow::slotSplitSelectionByDrum()
 
             m_view->slotAddCommandToHistory(command);
         } else {
-            QMessageBox::information(this, tr("Rosegarden"), 
+            QMessageBox::information(this, tr("梨音教学工具"),
                 tr("No segment was split."));
         }
 //    }    
@@ -2979,7 +2979,7 @@ RosegardenMainWindow::slotCreateAnacrusis()
 
     if (!haveBeginningSegment) {
         QMessageBox::information(this,
-                                 tr("Rosegarden"),
+                                 tr("梨音教学工具"),
                                  tr("<qt><p>In order to create anacrusis, at least one of the segments in your selection must start at the beginning of the composition.</p></qt>")
                                 );
         return;
@@ -3783,7 +3783,7 @@ RosegardenMainWindow::slotRevertToSaved()
 
     if (m_doc->isModified()) {
         int revert =
-            QMessageBox::question(this, tr("Rosegarden"), 
+            QMessageBox::question(this, tr("梨音教学工具"),
                                        tr("Revert modified document to previous saved version?"));
 
         if (revert == QMessageBox::No)
@@ -3981,7 +3981,7 @@ RosegardenMainWindow::createDocumentFromMIDIFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // Don't want to auto close since this is a multi-step
     // process.  Any of the steps may set progress to 100.  We
@@ -4000,7 +4000,7 @@ RosegardenMainWindow::createDocumentFromMIDIFile(QString file)
         // This stuff either gets translated at the source, if we own it, or it
         // doesn't get translated at all, if we don't (eg. errors from the
         // underlying filesystem, a library, etc.)
-        QMessageBox::critical(this, tr("Rosegarden"), strtoqstr(midiFile.getError()));
+        QMessageBox::critical(this, tr("梨音教学工具"), strtoqstr(midiFile.getError()));
         delete newDoc;
         return nullptr;
     }
@@ -4172,7 +4172,7 @@ RosegardenMainWindow::createDocumentFromRG21File(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // We will close anyway when this object goes out of scope.
     progressDialog.setAutoClose(false);
@@ -4191,7 +4191,7 @@ RosegardenMainWindow::createDocumentFromRG21File(QString file)
     RG21Loader rg21Loader(&newDoc->getStudio());
 
     if (!rg21Loader.load(file, newDoc->getComposition())) {
-        QMessageBox::critical(this, tr("Rosegarden"), 
+        QMessageBox::critical(this, tr("梨音教学工具"),
                            tr("Can't load X11 Rosegarden file.  It appears to be corrupted."));
         delete newDoc;
         return nullptr;
@@ -4269,7 +4269,7 @@ RosegardenMainWindow::createDocumentFromHydrogenFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // We will close anyway when this object goes out of scope.
     progressDialog.setAutoClose(false);
@@ -4288,7 +4288,7 @@ RosegardenMainWindow::createDocumentFromHydrogenFile(QString file)
     HydrogenLoader hydrogenLoader(&newDoc->getStudio());
 
     if (!hydrogenLoader.load(file, newDoc->getComposition())) {
-        QMessageBox::critical(this, tr("Rosegarden"),
+        QMessageBox::critical(this, tr("梨音教学工具"),
                            tr("Can't load Hydrogen file.  It appears to be corrupted."));
         delete newDoc;
         return 0;
@@ -4367,7 +4367,7 @@ RosegardenMainWindow::createDocumentFromMusicXMLFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // We will close anyway when this object goes out of scope.
     progressDialog.setAutoClose(false);
@@ -4386,7 +4386,7 @@ RosegardenMainWindow::createDocumentFromMusicXMLFile(QString file)
     MusicXMLLoader musicxmlLoader(&newDoc->getStudio());
 
     if (!musicxmlLoader.load(file, newDoc->getComposition(), newDoc->getStudio())) {
-        QMessageBox::critical(this, tr("Rosegarden"),
+        QMessageBox::critical(this, tr("梨音教学工具"),
                            tr("Can't load MusicXML file:\n")+
                               musicxmlLoader.errorMessage());
         delete newDoc;
@@ -4713,7 +4713,7 @@ RosegardenMainWindow::slotSetPointerPosition(timeT t)
                 m_seqManager->jumpTo(comp.getElapsedRealTime(t));
             }
         } catch (const QString &s) {
-            QMessageBox::critical(this, tr("Rosegarden"), s);
+            QMessageBox::critical(this, tr("梨音教学工具"), s);
         }
     }
 
@@ -4963,11 +4963,11 @@ RosegardenMainWindow::slotSequencerExited()
 
     if (m_sequencerCheckedIn) {
 
-        QMessageBox::critical(this, tr("Rosegarden"), tr("The Rosegarden sequencer process has exited unexpectedly.  Sound and recording will no longer be available for this session.\nPlease exit and restart Rosegarden to restore sound capability."));
+        QMessageBox::critical(this, tr("梨音教学工具"), tr("The Rosegarden sequencer process has exited unexpectedly.  Sound and recording will no longer be available for this session.\nPlease exit and restart Rosegarden to restore sound capability."));
 
     } else {
 
-        QMessageBox::critical(this, tr("Rosegarden"), tr("The Rosegarden sequencer could not be started, so sound and recording will be unavailable for this session.\nFor assistance with correct audio and MIDI configuration, go to http://rosegardenmusic.com."));
+        QMessageBox::critical(this, tr("梨音教学工具"), tr("The Rosegarden sequencer could not be started, so sound and recording will be unavailable for this session.\nFor assistance with correct audio and MIDI configuration, go to http://rosegardenmusic.com."));
     }
 
     delete m_sequencerThread;
@@ -5001,7 +5001,7 @@ RosegardenMainWindow::slotExportProject()
     QString errMsg;
     if (!m_doc->saveDocument(rgFile, errMsg,
                              true)) { // pretend it's autosave
-        QMessageBox::warning(this, tr("Rosegarden"), tr("Saving Rosegarden file to package failed: %1").arg(errMsg));
+        QMessageBox::warning(this, tr("梨音教学工具"), tr("Saving Rosegarden file to package failed: %1").arg(errMsg));
         return ;
     }
 
@@ -5037,7 +5037,7 @@ RosegardenMainWindow::exportMIDIFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // No sense in auto close since we will close anyway when
     // this object goes out of scope.
@@ -5053,7 +5053,7 @@ RosegardenMainWindow::exportMIDIFile(QString file)
     midiFile.setProgressDialog(&progressDialog);
 
     if (!midiFile.convertToMidi(m_doc, file)) {
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("Export failed.  The file could not be opened for writing."));
     }
 }
@@ -5087,7 +5087,7 @@ RosegardenMainWindow::exportCsoundFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // No sense in auto close since we will close anyway when
     // this object goes out of scope.
@@ -5106,7 +5106,7 @@ RosegardenMainWindow::exportCsoundFile(QString file)
             std::string(file.toLocal8Bit()));  // fileName
 
     if (!csoundExporter.write()) {
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("Export failed.  The file could not be opened for writing."));
     }
 }
@@ -5135,7 +5135,7 @@ RosegardenMainWindow::exportMupFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 0,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // No sense in auto close since we will close anyway when
     // this object goes out of scope.
@@ -5154,7 +5154,7 @@ RosegardenMainWindow::exportMupFile(QString file)
             std::string(file.toLocal8Bit()));  // fileName
 
     if (!mupExporter.write()) {
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                 tr("Export failed.  The file could not be opened for writing."));
     }
 }
@@ -5217,7 +5217,7 @@ RosegardenMainWindow::getLilyPondTmpFilename()
     QTemporaryFile *file = new QTemporaryFile(mask);
     file->setAutoRemove(true);
     if (!file->open()) {
-        QMessageBox::warning(this, tr("Rosegarden"), tr("<qt><p>Failed to open a temporary file for LilyPond export.</p>"
+        QMessageBox::warning(this, tr("梨音教学工具"), tr("<qt><p>Failed to open a temporary file for LilyPond export.</p>"
                                           "<p>This probably means you have run out of disk space on <pre>%1</pre></p></qt>").
                                        arg(QDir::tempPath()));
         delete file;
@@ -5251,7 +5251,7 @@ RosegardenMainWindow::exportLilyPondFile(QString file, bool forPreview)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // No sense in auto close since we will close anyway when
     // this object goes out of scope.
@@ -5271,7 +5271,7 @@ RosegardenMainWindow::exportLilyPondFile(QString file, bool forPreview)
 
     if (!lilyPondExporter.write()) {
         if (!progressDialog.wasCanceled()) {
-            QMessageBox::warning(this, tr("Rosegarden"),
+            QMessageBox::warning(this, tr("梨音教学工具"),
                     lilyPondExporter.getMessage());
         }
 
@@ -5312,7 +5312,7 @@ RosegardenMainWindow::exportMusicXmlFile(QString file)
             tr("Cancel"),  // cancelButtonText
             0, 100,  // min, max
             this);  // parent
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // No sense in auto close since we will close anyway when
     // this object goes out of scope.
@@ -5334,7 +5334,7 @@ RosegardenMainWindow::exportMusicXmlFile(QString file)
 
     if (!musicXmlExporter.write()) {
         QMessageBox::warning(this,
-                tr("Rosegarden"),
+                tr("梨音教学工具"),
                 tr("Export failed.  The file could not be opened for writing."));
     }
 }
@@ -5451,7 +5451,7 @@ RosegardenMainWindow::slotRecord()
         // We should already be stopped by this point so just unset
         // the buttons after clicking the dialog.
         //
-        QMessageBox::critical(this, tr("Rosegarden"), s);
+        QMessageBox::critical(this, tr("梨音教学工具"), s);
 
         getTransport()->MetronomeButton()->setChecked(false);
         getTransport()->RecordButton()->setChecked(false);
@@ -5473,7 +5473,7 @@ RosegardenMainWindow::slotRecord()
         getTransport()->PlayButton()->setChecked(false);
         return ;
     } catch (const Exception &e) {
-        QMessageBox::critical(this, tr("Rosegarden"), strtoqstr(e.getMessage()));
+        QMessageBox::critical(this, tr("梨音教学工具"), strtoqstr(e.getMessage()));
 
         getTransport()->MetronomeButton()->setChecked(false);
         getTransport()->RecordButton()->setChecked(false);
@@ -5498,7 +5498,7 @@ RosegardenMainWindow::slotToggleRecord()
     try {
         m_seqManager->record(true);
     } catch (const QString &s) {
-        QMessageBox::critical(this, tr("Rosegarden"), s);
+        QMessageBox::critical(this, tr("梨音教学工具"), s);
     } catch (const AudioFileManager::BadAudioPathException &e) {
         if (QMessageBox::warning
             (this, tr("Error"),
@@ -5511,7 +5511,7 @@ RosegardenMainWindow::slotToggleRecord()
         slotOpenAudioPathSettings();
         }
     } catch (const Exception &e) {
-        QMessageBox::critical(this, tr("Rosegarden"),  strtoqstr(e.getMessage()));
+        QMessageBox::critical(this, tr("梨音教学工具"),  strtoqstr(e.getMessage()));
     }
 
 }
@@ -5533,7 +5533,7 @@ RosegardenMainWindow::slotSetLoop(timeT lhs, timeT rhs)
             leaveActionState("have_range"); //@@@ JAS orig. KXMLGUIClient::StateReverse
         }
     } catch (const QString &s) {
-        QMessageBox::critical(this, tr("Rosegarden"), s);
+        QMessageBox::critical(this, tr("梨音教学工具"), s);
     }
 }
 
@@ -5595,9 +5595,9 @@ RosegardenMainWindow::slotPlay()
     try {
         m_seqManager->play(); // this will stop playback (pause) if it's already running
     } catch (const QString &s) {
-        QMessageBox::critical(this, tr("Rosegarden"), s);
+        QMessageBox::critical(this, tr("梨音教学工具"), s);
     } catch (const Exception &e) {
-        QMessageBox::critical(this, tr("Rosegarden"), strtoqstr(e.getMessage()));
+        QMessageBox::critical(this, tr("梨音教学工具"), strtoqstr(e.getMessage()));
     }  
 }
 
@@ -5631,7 +5631,7 @@ RosegardenMainWindow::slotStop()
         if (m_seqManager)
             m_seqManager->stop();
     } catch (const Exception &e) {
-        QMessageBox::critical(this, tr("Rosegarden"), strtoqstr(e.getMessage()));
+        QMessageBox::critical(this, tr("梨音教学工具"), strtoqstr(e.getMessage()));
     }
 }
 
@@ -6375,7 +6375,7 @@ RosegardenMainWindow::createRecordAudioFiles(const QVector<InstrumentId> &record
     // so I've had to throw instructions in their face.
     if (m_doc->getTitle() == tr("Untitled")) {
         QMessageBox::information(this,
-                                 tr("Rosegarden"),
+                                 tr("梨音教学工具"),
         // TRANSLATOR: you may change "doc:audio-filename-en" to a page in your
         // language if you wish.  The n in <i>n</i>.wav refers to an unknown
         // number, such as might be used in a mathematical equation
@@ -6470,7 +6470,7 @@ RosegardenMainWindow::showError(QString error)
     // going to stick with a warning dialog here rather than an
     // information one
 
-    QMessageBox::warning(nullptr, tr("Rosegarden"), error);
+    QMessageBox::warning(nullptr, tr("梨音教学工具"), error);
 }
 
 void
@@ -6590,7 +6590,7 @@ RosegardenMainWindow::slotAddAudioFile(unsigned int id)
         addAudioFile(aF->getFilename(), aF->getId());
 
     if (!result) {
-        QMessageBox::critical(this, tr("Rosegarden"), tr("Sequencer failed to add audio file %1").arg(aF->getFilename()));
+        QMessageBox::critical(this, tr("梨音教学工具"), tr("Sequencer failed to add audio file %1").arg(aF->getFilename()));
     }
 }
 
@@ -6603,7 +6603,7 @@ RosegardenMainWindow::slotDeleteAudioFile(unsigned int id)
     int result = RosegardenSequencer::getInstance()->removeAudioFile(id);
 
     if (!result) {
-        QMessageBox::critical(this, tr("Rosegarden"), tr("Sequencer failed to remove audio file id %1").arg(id));
+        QMessageBox::critical(this, tr("梨音教学工具"), tr("Sequencer failed to remove audio file id %1").arg(id));
     }
 }
 
@@ -7764,7 +7764,7 @@ RosegardenMainWindow::slotHelpAbout()
 void
 RosegardenMainWindow::slotHelpAboutQt()
 {
-    QMessageBox::aboutQt(this, tr("Rosegarden"));
+    QMessageBox::aboutQt(this, tr("梨音教学工具"));
 }
 
 void
@@ -7887,7 +7887,7 @@ RosegardenMainWindow::slotSaveDefaultStudio()
     RG_DEBUG << "RosegardenMainWindow::slotSaveDefaultStudio\n";
 
     int reply = QMessageBox::warning
-                (this, tr("Rosegarden"), tr("Are you sure you want to save this as your default studio?"), 
+                (this, tr("梨音教学工具"), tr("Are you sure you want to save this as your default studio?"),
                  QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
     if (reply != QMessageBox::Yes)
@@ -7905,10 +7905,10 @@ RosegardenMainWindow::slotSaveDefaultStudio()
     bool res = m_doc->saveDocument(autoloadFile, errMsg);
     if (!res) {
         if (!errMsg.isEmpty())
-            QMessageBox::critical(this, tr("Rosegarden"), tr("Could not auto-save document at %1\nError was : %2")
+            QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not auto-save document at %1\nError was : %2")
                                   .arg(autoloadFile).arg(errMsg));
         else
-            QMessageBox::critical(this, tr("Rosegarden"), tr("Could not auto-save document at %1")
+            QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not auto-save document at %1")
                                   .arg(autoloadFile));
 
     }
@@ -7918,7 +7918,7 @@ void
 RosegardenMainWindow::slotImportDefaultStudio()
 {
     int reply = QMessageBox::warning
-            (this, tr("Rosegarden"), tr("Are you sure you want to import your default studio and lose the current one?"), QMessageBox::Yes | QMessageBox::No);
+            (this, tr("梨音教学工具"), tr("Are you sure you want to import your default studio and lose the current one?"), QMessageBox::Yes | QMessageBox::No);
 
     if (reply != QMessageBox::Yes)
         return ;
@@ -8388,9 +8388,9 @@ bool RosegardenMainWindow::saveIfModified()
 
             if (!completed) {
                 if (!errMsg.isEmpty()) {
-                    QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1\n(%2)").arg(m_doc->getAbsFilePath()).arg(errMsg));
+                    QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1\n(%2)").arg(m_doc->getAbsFilePath()).arg(errMsg));
                 } else {
-                    QMessageBox::critical(this, tr("Rosegarden"), tr("Could not save document at %1").arg(m_doc->getAbsFilePath()));
+                    QMessageBox::critical(this, tr("梨音教学工具"), tr("Could not save document at %1").arg(m_doc->getAbsFilePath()));
                 }
             }
         }

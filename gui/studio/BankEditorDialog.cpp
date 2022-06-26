@@ -1811,11 +1811,11 @@ BankEditorDialog::slotExport()
     if (!m_doc->exportStudio(name, errMsg, devices)) {
         if (errMsg != "") {
             QMessageBox::critical
-                (nullptr, tr("Rosegarden"), tr(QString("Could not export studio to file at %1\n(%2)")
+                (nullptr, tr("梨音教学工具"), tr(QString("Could not export studio to file at %1\n(%2)")
                            .arg(name).arg(errMsg).toStdString().c_str()));
         } else {
             QMessageBox::critical
-                (nullptr, tr("Rosegarden"), tr(QString("Could not export studio to file at %1")
+                (nullptr, tr("梨音教学工具"), tr(QString("Could not export studio to file at %1")
                            .arg(name).toStdString().c_str()));
         }
     }

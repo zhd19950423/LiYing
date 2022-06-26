@@ -498,7 +498,7 @@ GuitarChordSelectorDialog::parseChordFile(const QString& chordFileName)
     QFile chordFile(chordFileName);
     bool ok = chordFile.open(QIODevice::ReadOnly);    
     if (!ok)
-        QMessageBox::critical(nullptr, tr("Rosegarden"), tr("couldn't open file '%1'").arg(handler.errorString()));
+        QMessageBox::critical(nullptr, tr("梨音教学工具"), tr("couldn't open file '%1'").arg(handler.errorString()));
 
     QXmlInputSource source(&chordFile);
     QXmlSimpleReader reader;
@@ -513,7 +513,7 @@ GuitarChordSelectorDialog::parseChordFile(const QString& chordFileName)
 // RG_DEBUG << "  parsed OK, without crashing!  W00t!";
 
     if (!ok)
-        QMessageBox::critical(nullptr, tr("Rosegarden"), tr("couldn't parse chord dictionary : %1").arg(handler.errorString()));
+        QMessageBox::critical(nullptr, tr("梨音教学工具"), tr("couldn't parse chord dictionary : %1").arg(handler.errorString()));
     
 }
 

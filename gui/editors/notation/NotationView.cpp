@@ -1248,7 +1248,7 @@ NotationView::initLayoutToolbar()
     if (!foundFont) {
         // don't annoy user with stupid internal warning dialog (except while
         // debugging)
-        QMessageBox::warning (this, tr("Rosegarden"), tr("Unknown font \"%1\", using default")
+        QMessageBox::warning (this, tr("梨音教学工具"), tr("Unknown font \"%1\", using default")
                              .arg(m_fontName) );
         m_fontName = NoteFontFactory::getDefaultFontName();
     }
@@ -1425,7 +1425,7 @@ NotationView::exportLilyPondFile(QString file, bool forPreview)
     LilyPondExporter e(m_doc, view->getSelection(), std::string(QFile::encodeName(file)), this);
 
     if (!e.write()) {
-        QMessageBox::warning(this, tr("Rosegarden"), e.getMessage());
+        QMessageBox::warning(this, tr("梨音教学工具"), e.getMessage());
         return false;
     }
 
@@ -1477,7 +1477,7 @@ NotationView::getLilyPondTmpFilename()
     QTemporaryFile *file = new QTemporaryFile(mask);
     file->setAutoRemove(true);
     if (!file->open()) {
-        QMessageBox::warning(this, tr("Rosegarden"),
+        QMessageBox::warning(this, tr("梨音教学工具"),
                                        tr("<qt><p>Failed to open a temporary file for LilyPond export.</p>"
                                           "<p>This probably means you have run out of disk space on <pre>%1</pre></p></qt>").
                                        arg(QDir::tempPath()));
@@ -1534,7 +1534,7 @@ NotationView::slotChangeFontFromAction()
         }
     } else {
         QMessageBox::warning
-            (this, tr("Rosegarden"), tr("Unknown font action %1").arg(name));
+            (this, tr("梨音教学工具"), tr("Unknown font action %1").arg(name));
     }
 }
 
@@ -1560,7 +1560,7 @@ NotationView::slotChangeFontSizeFromAction()
         } 
     }
     QMessageBox::warning
-        (this, tr("Rosegarden"), tr("Unknown font size action %1").arg(name));
+        (this, tr("梨音教学工具"), tr("Unknown font size action %1").arg(name));
 }
 
 void
@@ -1585,7 +1585,7 @@ NotationView::slotChangeSpacingFromAction()
         } 
     }
     QMessageBox::warning
-        (this, tr("Rosegarden"), tr("Unknown spacing action %1").arg(name));
+        (this, tr("梨音教学工具"), tr("Unknown spacing action %1").arg(name));
 }
 
 Segment *
@@ -1688,7 +1688,7 @@ NotationView::slotEditPaste()
         // that I've reworked it.  Is this copy you're looking at the original,
         // or the copy?  Only I know for sure, and I'll never tell!  Bwa haha!
         QMessageBox msgBox;
-        msgBox.setWindowTitle(tr("Rosegarden"));
+        msgBox.setWindowTitle(tr("梨音教学工具"));
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setText(tr("Couldn't paste at this point."));
         if (defaultType == PasteEventsCommand::Restricted) {
@@ -1746,7 +1746,7 @@ NotationView::slotEditGeneralPaste()
             // that I've reworked it.  Is this copy you're looking at the original,
             // or the copy?  Only I know for sure, and I'll never tell!  Bwa haha!
             QMessageBox msgBox;
-            msgBox.setWindowTitle(tr("Rosegarden"));
+            msgBox.setWindowTitle(tr("梨音教学工具"));
             msgBox.setIcon(QMessageBox::Warning);
             msgBox.setText(tr("Couldn't paste at this point."));
             if (type == PasteEventsCommand::Restricted) {
@@ -2642,7 +2642,7 @@ NotationView::slotInsertNoteFromAction()
             } catch (...) {
 
                 QMessageBox::warning
-                    (this, tr("Rosegarden"),  tr("Unknown note insert action %1").arg(name));
+                    (this, tr("梨音教学工具"),  tr("Unknown note insert action %1").arg(name));
                 return ;
             }
 
@@ -3372,7 +3372,7 @@ NotationView::slotEditAddSustain(bool down)
         }
     }
 
-    QMessageBox::warning(this, tr("Rosegarden"), tr("There is no sustain controller defined for this device.\nPlease ensure the device is configured correctly in the Manage MIDI Devices dialog in the main window."));
+    QMessageBox::warning(this, tr("梨音教学工具"), tr("There is no sustain controller defined for this device.\nPlease ensure the device is configured correctly in the Manage MIDI Devices dialog in the main window."));
 }
 
 void
@@ -4453,7 +4453,7 @@ NotationView::slotHelpAbout()
 void
 NotationView::slotHelpAboutQt()
 {
-    QMessageBox::aboutQt(this, tr("Rosegarden"));
+    QMessageBox::aboutQt(this, tr("梨音教学工具"));
 }
 
 void

@@ -882,7 +882,7 @@ TrackParameterBox::slotLoadPressed()
     } catch (Exception &e) {  // from PresetHandlerDialog
         // !!! This should be a more verbose error to pass along the
         //     row/column of the corruption.
-        QMessageBox::warning(nullptr, tr("Rosegarden"),
+        QMessageBox::warning(nullptr, tr("梨音教学工具"),
                 tr("The instrument preset database is corrupt.  Check your installation."));
     }
 }

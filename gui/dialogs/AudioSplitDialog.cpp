@@ -69,7 +69,7 @@ AudioSplitDialog::AudioSplitDialog(QWidget *parent,
     setModal(true);
     // pre-pend "Rosegarden" to title in a way that preserves existing
     // translations unchanged:
-    QString title = QString("%1 - %2").arg(tr("Rosegarden")).arg(tr("Autosplit Audio Segment"));
+    QString title = QString("%1 - %2").arg(tr("梨音教学工具")).arg(tr("Autosplit Audio Segment"));
     setWindowTitle(title);
 
     QVBoxLayout *layout = new QVBoxLayout;

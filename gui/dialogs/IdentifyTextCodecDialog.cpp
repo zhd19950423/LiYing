@@ -66,7 +66,7 @@ IdentifyTextCodecDialog::IdentifyTextCodecDialog(QWidget *parent,
     m_text(text)
 {
     setModal(true);
-    setWindowTitle(tr("Rosegarden"));
+    setWindowTitle(tr("梨音教学工具"));
 
     QVBoxLayout *vboxLayout = new QVBoxLayout;
     setLayout(vboxLayout);

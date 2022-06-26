@@ -919,7 +919,7 @@ void TrackEditor::dropEvent(QDropEvent *e)
                 // data is not from AudioFileManager
 
                 QMessageBox::warning
-                    (this, tr("Rosegarden"),
+                    (this, tr("梨音教学工具"),
                      tr("Rosegarden cannot accept dropped files of this type."));
             }
         }

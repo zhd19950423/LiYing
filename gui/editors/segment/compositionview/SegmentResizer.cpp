@@ -150,7 +150,7 @@ void SegmentResizer::resizeAudioSegment(
             0, 100,  // min, max
             RosegardenMainWindow::self());  // parent
 
-    progressDialog.setWindowTitle(tr("Rosegarden"));
+    progressDialog.setWindowTitle(tr("梨音教学工具"));
     progressDialog.setWindowModality(Qt::WindowModal);
     // Don't want to auto close since this is a multi-step
     // process.  Any of the steps may set progress to 100.  We

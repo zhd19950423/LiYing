@@ -62,7 +62,7 @@ ProgressDialog::ProgressDialog(const QString &labelText , /*
 {
     RG_DEBUG << "ProgressDialog::ProgressDialog - " << labelText << /* " - modal : " << modal << */ endl;
 
-    setWindowTitle(tr("Rosegarden"));
+    setWindowTitle(tr("梨音教学工具"));
     setBar(new ProgressBar(this));
     setLabelText(labelText);
 

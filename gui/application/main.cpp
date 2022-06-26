@@ -427,7 +427,7 @@ int main(int argc, char *argv[])
 
     theApp.setOrganizationName("rosegardenmusic");
     theApp.setOrganizationDomain("rosegardenmusic.com");
-    theApp.setApplicationName(QObject::tr("Rosegarden"));
+    theApp.setApplicationName(QObject::tr("梨音教学工具"));
 
     QSettings settings;
     settings.beginGroup(GeneralOptionsConfigGroup);
@@ -769,10 +769,10 @@ int main(int argc, char *argv[])
         qApp->processEvents();
     }
 
-    QMessageBox::information(0, "Rosegarden", "Information.", QMessageBox::Ok, QMessageBox::Ok);
-    QMessageBox::critical(0, "Rosegarden", "Critical!", QMessageBox::Ok, QMessageBox::Ok);
-    QMessageBox::question(0, "Rosegarden", "Question?", QMessageBox::Ok, QMessageBox::Ok);
-    QMessageBox::warning(0, "Rosegarden", "Warning!", QMessageBox::Ok, QMessageBox::Ok);
+    QMessageBox::information(0, "梨音教学工具", "Information.", QMessageBox::Ok, QMessageBox::Ok);
+    QMessageBox::critical(0, "梨音教学工具", "Critical!", QMessageBox::Ok, QMessageBox::Ok);
+    QMessageBox::question(0, "梨音教学工具", "Question?", QMessageBox::Ok, QMessageBox::Ok);
+    QMessageBox::warning(0, "梨音教学工具", "Warning!", QMessageBox::Ok, QMessageBox::Ok);
 #endif
 
     RG_INFO << "Starting the app...";

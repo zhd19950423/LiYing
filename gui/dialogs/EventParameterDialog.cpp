@@ -94,7 +94,7 @@ EventParameterDialog::EventParameterDialog(
         m_NbParameters(0)
 {
     setModal(true);
-    setWindowTitle(tr("Rosegarden"));
+    setWindowTitle(tr("梨音教学工具"));
     setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
