@@ -1,5 +1,5 @@
 ;-------------------------------
-; Rosegarden NSIS Installer
+; LiYing NSIS Installer
 ;
 ; Richard Bown
 ; November 2019
@@ -17,15 +17,15 @@ RequestExecutionLevel admin
 !include "MUI.nsh"
 
 ; The name of the installer
-Name "RG-win32-alpha-1906"
-Caption "Rosegarden Windows32 Alpha Build 1906"
+Name "LY-win64-alpha-2022"
+Caption "LiYing Windows32 Alpha Build 2022"
 
 !define icon "icon.ico"
-!define COMPANY "Rosegarden"
-!define SOFTWARE "Rosegarden"
+!define COMPANY "LiYing"
+!define SOFTWARE "LiYing"
 
 ; The file to write
-OutFile "rosegarden-win64-alpha-1906.exe"
+OutFile "LiYing-win64-alpha-2022.exe"
 
 ; The default installation directory
 ;
@@ -59,7 +59,7 @@ UninstPage instfiles
 ;--------------------------------
 
 ; The stuff to install
-Section "Rosegarden"
+Section "LiYing"
 
     SectionIn RO
 
@@ -73,7 +73,7 @@ Section "Rosegarden"
 
     ; The files we are building into the package
     ;
-    File "release\rosegarden.exe"
+    File "..\release\release\liying.exe"
     ;File "icudt52.dll"
     ;File "icuin52.dll"
     ;File "icuuc52.dll"
@@ -124,14 +124,14 @@ Section "Rosegarden"
 
     ; Write the installation path into the registry
     WriteRegStr HKLM "Software\${COMPANY}\${SOFTWARE}" "Install_Dir" "$INSTDIR"
-    WriteRegStr HKCR "Rosegarden\DefaultIcon" "" "$INSTDIR\rg-rwb-rose3-128x128.ico"
+    WriteRegStr HKCR "LiYing\DefaultIcon" "" "$INSTDIR\rg-rwb-rose3-128x128.ico"
 
     ; Write the uninstall keys for Windows
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Rosegarden" "DisplayName" "Rosegarden"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Rosegarden" "UninstallString" '"$INSTDIR\uninstall.exe"'
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LiYing" "DisplayName" "LiYing"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LiYing" "UninstallString" '"$INSTDIR\uninstall.exe"'
 
-    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Rosegarden" "NoModify" 1
-    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Rosegarden" "NoRepair" 1
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LiYing" "NoModify" 1
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LiYing" "NoRepair" 1
     WriteUninstaller "uninstall.exe"
 
 SectionEnd
@@ -151,13 +151,13 @@ Section "Fonts"
     !insertmacro RemoveTTFFont "GNU-LilyPond-feta-nummer-10.ttf"
     !insertmacro RemoveTTFFont "GNU-LilyPond-parmesan-20.ttf"
 
-    !insertmacro InstallTTFFont "fonts\GNU-LilyPond-feta-design20.ttf"
-    !insertmacro InstallTTFFont "fonts\GNU-LilyPond-feta-nummer-10.ttf"
-    !insertmacro InstallTTFFont "fonts\GNU-LilyPond-parmesan-20.ttf"
+    !insertmacro InstallTTFFont "data\fonts\GNU-LilyPond-feta-design20.ttf"
+    !insertmacro InstallTTFFont "data\fonts\GNU-LilyPond-feta-nummer-10.ttf"
+    !insertmacro InstallTTFFont "data\fonts\GNU-LilyPond-parmesan-20.ttf"
 
     ; Complete font registration without reboot
     ;
-    SendMessage ${HWND_BROADCAST} ${WM_FONTCHANGE} 0 0 \TIMEOUT=5000
+    SendMessage ${HWND_BROADCAST} ${WM_FONTCHANGE} 0 0 /TIMEOUT=5000
 
 SectionEnd
 
@@ -165,10 +165,10 @@ SectionEnd
 ; Optional section (can be disabled by the user)
 Section "Start Menu Shortcuts"
 
-    CreateDirectory "$SMPROGRAMS\Rosegarden"
-    CreateShortCut "$SMPROGRAMS\Rosegarden\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-    ;CreateShortCut "$SMPROGRAMS\Rosegarden\Rosegarden.lnk" "$INSTDIR\rosegarden.exe" "" "$INSTDIR\garderobe.nsi" 0
-    CreateShortCut "$SMPROGRAMS\Rosegarden\Rosegarden.lnk" "$INSTDIR\rosegarden.exe" "" "$INSTDIR\rg-rwb-rose3-128x128.ico"
+    CreateDirectory "$SMPROGRAMS\LiYing"
+    CreateShortCut "$SMPROGRAMS\LiYing\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
+    ;CreateShortCut "$SMPROGRAMS\LiYing\LiYing.lnk" "$INSTDIR\liying.exe" "" "$INSTDIR\garderobe.nsi" 0
+    CreateShortCut "$SMPROGRAMS\LiYing\LiYing.lnk" "$INSTDIR\liying.exe" "" "$INSTDIR\rg-rwb-rose3-128x128.ico"
 
 SectionEnd
 
@@ -180,7 +180,7 @@ Section "Uninstall"
 
     ; Remove registry keys
     ;
-    DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Rosegarden"
+    DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LiYing"
     DeleteRegKey HKLM "Software\${COMPANY}\${SOFTWARE}"
 
     Delete "$INSTDIR\COPYING.txt"
@@ -191,7 +191,7 @@ Section "Uninstall"
     ; Remove files and uninstaller
     ;
     Delete $INSTDIR\*uninstall.exe
-    Delete "$INSTDIR\rosegarden.exe"
+    Delete "$INSTDIR\liying.exe"
     ;Delete "$INSTDIR\icudt52.dll"
     ;Delete "$INSTDIR\icuin52.dll"
     ;Delete "$INSTDIR\icuuc52.dll"
@@ -233,17 +233,17 @@ Section "Uninstall"
     Delete "$INSTDIR\rg-rwb-rose3-128x128.ico"
 
     ; Remove shortcuts, if any
-    Delete "$SMPROGRAMS\Rosegarden\*.*"
-    Delete "$INSTDIR\Rosegarden\*.*"
+    Delete "$SMPROGRAMS\LiYing\*.*"
+    Delete "$INSTDIR\LiYing\*.*"
 
     ; Remove the data directory and subdirs
     ;
-    RMDir \r "$INSTDIR\accessible"
-    RMDir \r "$INSTDIR\bearer"
-    RMDir \r "$INSTDIR\iconengines"
-    RMDir \r "$INSTDIR\imageformats"
-    RMDir \r "$INSTDIR\platforms"
-    RMDir \r "$INSTDIR\printsupport"
+    RMDir /r "$INSTDIR\accessible"
+    RMDir /r "$INSTDIR\bearer"
+    RMDir /r "$INSTDIR\iconengines"
+    RMDir /r "$INSTDIR\imageformats"
+    RMDir /r "$INSTDIR\platforms"
+    RMDir /r "$INSTDIR\printsupport"
 
     Delete "$INSTDIR\accessible"
     Delete "$INSTDIR\bearer"
@@ -254,7 +254,7 @@ Section "Uninstall"
 
     ; Remove directories used
     ;
-    RMDir "$SMPROGRAMS\Rosegarden"
+    RMDir "$SMPROGRAMS\LiYing"
     RMDir "$INSTDIR"
 
 SectionEnd
