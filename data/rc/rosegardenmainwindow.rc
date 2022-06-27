@@ -10,10 +10,10 @@
 	 the very bottom in older KDE3 versions: -->
     <Menu name="import" append="new_merge">
       <text>&amp;Import</text>
-      <Action name="file_import_project" text="Import Rosegarden &amp;Project File..." />
+      <Action name="file_import_project" text="Import LiYing &amp;Project File..." />
       <Separator/>
       <Action name="file_import_midi" text="Import &amp;MIDI File..." />
-      <Action name="file_import_rg21" text="Import &amp;X11 Rosegarden File..." />
+      <Action name="file_import_rg21" text="Import &amp;X11 LiYing File..." />
 <!--      <Action name="file_import_hydrogen" text="Import &amp;Hydrogen file..." /> -->
       <Action name="file_import_musicxml" text="Import MusicXM&amp;L File..." />
     </Menu>
@@ -21,7 +21,7 @@
       <text>&amp;Merge</text>
       <Action name="file_merge" text="Merge &amp;File..." />
       <Action name="file_merge_midi" text="Merge &amp;MIDI File..." />
-      <Action name="file_merge_rg21" text="Merge &amp;X11 Rosegarden File..." />
+      <Action name="file_merge_rg21" text="Merge &amp;X11 LiYing File..." />
 <!--      <Action name="file_merge_hydrogen" text="Merge &amp;Hydrogen file..." /> -->
       <Action name="file_merge_musicxml" text="Merge MusicXM&amp;L File..." />
     </Menu>
@@ -29,7 +29,7 @@
 	 the very bottom in older KDE3 versions: -->
     <Menu name="export" append="new_merge">
       <text>&amp;Export</text>
-      <Action name="file_export_project" text="Export Rosegarden &amp;Project File..." />
+      <Action name="file_export_project" text="Export LiYing &amp;Project File..." />
       <Separator/>
       <Action name="file_export_lilypond" text="Export &amp;LilyPond File..." />
       <Separator/>
@@ -260,15 +260,15 @@
 
   <Menu name="help" append="about_merge">
     <text>&amp;Help</text>
-    <Action name="manual" text="Rosegarden &amp;Manual" icon="wiki" shortcut="F1" />
+    <Action name="manual" text="LiYing &amp;Manual" icon="wiki" shortcut="F1" />
   <Separator/>
-    <Action name="tutorial" text="&amp;Rosegarden Tutorials" />
+    <Action name="tutorial" text="&amp;LiYing Tutorials" />
     <Action name="guidelines" text="&amp;Bug Reporting Guidelines" />
   <Separator/>
-    <Action name="help_about_app" text="&amp;About Rosegarden" icon="rg-rwb-rose3-16x16" />
+    <Action name="help_about_app" text="&amp;About LiYing" icon="rg-rwb-rose3-16x16" />
     <Action name="help_about_qt" text="About &amp;Qt" />
   <Separator/>
-    <Action name="donate" text="&amp;Support Rosegarden" icon="donate" />
+    <Action name="donate" text="&amp;Support LiYing" icon="donate" />
   </Menu>
 
 </MenuBar>

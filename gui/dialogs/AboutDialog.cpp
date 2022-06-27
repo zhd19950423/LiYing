@@ -32,7 +32,7 @@ namespace Rosegarden
 AboutDialog::AboutDialog(QWidget *parent): QDialog(parent, nullptr)
 {
     this->setModal(true);
-    this->setWindowTitle(tr("About Rosegarden"));
+    this->setWindowTitle(tr("About LiYing"));
     QGridLayout *metagrid = new QGridLayout;
     this->setLayout(metagrid);
 
@@ -48,13 +48,13 @@ AboutDialog::AboutDialog(QWidget *parent): QDialog(parent, nullptr)
 
     QLabel *label = new QLabel;
     headerLayout->addWidget(label);
-    label->setText(tr("<h2>Rosegarden - \"%1\"</h2><h3>A sequencer and musical notation editor</h3>").arg(CODENAME));
+    label->setText(tr("<h2>LiYing - \"%1\"</h2><h3>A sequencer and musical notation editor</h3>").arg(CODENAME));
     label->setWordWrap(false);
 
     mainLayout->addLayout(headerLayout);
 
     QLabel *label2 = new QLabel;
-    label2->setText(tr("<p>Copyright 2000-2018 the Rosegarden development team</p><p>Version: %1 &nbsp; Qt version: %2<br>Build key: %3</p><p>Rosegarden was brought to you by a team of volunteers across the world.  For a list of contributors, visit <a style=\"color:gold\" href=\"http://www.rosegardenmusic.com/resources/authors\">http://www.rosegardenmusic.com/resources/authors</a>.<br>For more information about Rosegarden, visit <a style=\"color:gold\" href=\"http://www.rosegardenmusic.com\">http://www.rosegardenmusic.com</a>.</p><p>License: GNU General Public License Version 2 or later</p>").arg(VERSION).arg(QT_VERSION_STR).arg(BUILDKEY));
+    label2->setText(tr("<p>Copyright 2000-2018 the LiYing development team</p><p>Version: %1 &nbsp; Qt version: %2<br>Build key: %3</p><p>LiYing was brought to you by a team of volunteers across the world.  For a list of contributors, visit <a style=\"color:gold\" href=\"http://www.rosegardenmusic.com/resources/authors\">http://www.rosegardenmusic.com/resources/authors</a>.<br>For more information about Rosegarden, visit <a style=\"color:gold\" href=\"http://www.rosegardenmusic.com\">http://www.rosegardenmusic.com</a>.</p><p>License: GNU General Public License Version 2 or later</p>").arg(VERSION).arg(QT_VERSION_STR).arg(BUILDKEY));
     label2->setWordWrap(true);
     label2->setAlignment(Qt::AlignHCenter);
     label2->setOpenExternalLinks(true);
