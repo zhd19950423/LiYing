@@ -1,6 +1,6 @@
 include(update.pri)
 
-TARGET = rosegarden
+TARGET = liying
 
 # We need the widgets, printsupport for QT5
 #
